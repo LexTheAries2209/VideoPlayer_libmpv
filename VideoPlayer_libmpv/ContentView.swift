@@ -6,19 +6,26 @@
 //
 
 import SwiftUI
-
 struct ContentView: View {
+    let playerBridge = MPVPlayerBridge()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            MPVVideoView(playerBridge: playerBridge)
+                .frame(width: 400, height: 300)
+            Button("Play") {
+                playerBridge.loadFile(NSString(string: "/Users/lex./Desktop/1.mp4").expandingTildeInPath)
+                playerBridge.play()
+            }
+            Button("Stop") {
+                playerBridge.stop()
+            }
         }
-        .padding()
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
