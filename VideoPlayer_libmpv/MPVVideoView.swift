@@ -8,18 +8,28 @@
 import Foundation
 import SwiftUI
 
+class CustomVideoView: NSView {
+    var playerBridge: MPVPlayerBridge?
+
+    override func viewDidMoveToWindow() {
+        super.viewDidMoveToWindow()
+        if let window = self.window, window.windowNumber > 0 {
+            playerBridge?.setVideoOutput(self)
+        }
+    }
+}
+
 struct MPVVideoView: NSViewRepresentable {
     let playerBridge: MPVPlayerBridge
 
     func makeNSView(context: Context) -> some NSView {
-        // 创建一个用于视频输出的NSView
-        let view = NSView()
-        // 配置playerBridge使用这个view作为视频输出
-        playerBridge.setVideoOutput(view)
+        let view = CustomVideoView()
+        view.playerBridge = playerBridge
         return view
     }
 
     func updateNSView(_ nsView: NSViewType, context: Context) {
-        // 当视图更新时，您可以在这里进行配置
+        // Perform additional updates if needed
     }
 }
+

@@ -34,8 +34,13 @@
 
 - (void)loadFile:(NSString *)filename {
     // 调用 C++ 方法时，使用 -> 操作符
+    if (![filename length]) {
+        // Handle error, filename is empty
+        return;
+    }
     player->load([filename UTF8String]);
 }
+
 
 - (void)play {
     player->play();
@@ -46,9 +51,15 @@
 }
 
 - (void)setVideoOutput:(NSView *)videoOutput {
-    // 将NSView的window handle传递给libmpv
-    mpv_set_option_string(player->get_handle(), "wid", [[NSString stringWithFormat:@"%ld", (long)videoOutput.window.windowNumber] UTF8String]);
+    if (videoOutput.window) {
+        // 确保这个调用是在主线程上执行的
+        dispatch_async(dispatch_get_main_queue(), ^{
+            mpv_set_option_string(self->player->get_handle(), "wid", [[NSString stringWithFormat:@"%ld", (long)videoOutput.window.windowNumber] UTF8String]);
+        });
+    }
 }
+
+
 
 @end
 

@@ -6,16 +6,41 @@
 //
 
 import SwiftUI
+
 struct ContentView: View {
     let playerBridge = MPVPlayerBridge()
-    
+    @State private var videoPath: String = ""
+
     var body: some View {
         VStack {
             MPVVideoView(playerBridge: playerBridge)
                 .frame(width: 400, height: 300)
+            Text(videoPath) // 显示当前选择的视频路径
+                .lineLimit(1)
+                .truncationMode(.tail)
+                .frame(maxWidth: 400)
+
+            Button("Open") {
+                let openPanel = NSOpenPanel()
+                openPanel.canChooseFiles = true
+                openPanel.canChooseDirectories = false
+                openPanel.allowsMultipleSelection = false
+                openPanel.begin { response in
+                    if response == .OK {
+                        if let selectedPath = openPanel.url?.path {
+                            videoPath = selectedPath // 更新视频路径状态
+                            playerBridge.loadFile(selectedPath)
+                        }
+                    }
+                }
+            }
+
             Button("Play") {
-                playerBridge.loadFile(NSString(string: "/Users/lex./Desktop/1.mp4").expandingTildeInPath)
-                playerBridge.play()
+                if !videoPath.isEmpty {
+                    playerBridge.loadFile(videoPath) 
+                    // 使用当前选择的视频路径
+                    playerBridge.play()
+                }
             }
             Button("Stop") {
                 playerBridge.stop()

@@ -7,18 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5887BB282B69364C00DB1BF2 /* MPVPlayerBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 58FA3DCD2B66A8D00093927F /* MPVPlayerBridge.mm */; };
 		58F4A91E2B62431600D91778 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58F4A91D2B62431600D91778 /* Assets.xcassets */; };
 		58F4A9222B62431600D91778 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58F4A9212B62431600D91778 /* Preview Assets.xcassets */; };
 		58F4A92E2B6255C400D91778 /* libmpv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F4A92D2B6255C400D91778 /* libmpv.2.dylib */; };
 		58FA3DCB2B66A7690093927F /* MPVPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58F4A9292B62499C00D91778 /* MPVPlayer.cpp */; };
-		58FA3DCE2B66A8D00093927F /* MPVPlayerBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 58FA3DCD2B66A8D00093927F /* MPVPlayerBridge.mm */; };
 		58FA3DCF2B66A90E0093927F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F4A91B2B62431500D91778 /* ContentView.swift */; };
 		58FA3DD12B66A9280093927F /* VideoPlayer_libmpvApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F4A9192B62431500D91778 /* VideoPlayer_libmpvApp.swift */; };
-		58FA3DD22B66ADD40093927F /* MPVPlayerBridge.h in Sources */ = {isa = PBXBuildFile; fileRef = 58FA3DCC2B66A89E0093927F /* MPVPlayerBridge.h */; };
-		58FA3DD32B66ADD80093927F /* MPVPlayer.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 58F4A92A2B62499C00D91778 /* MPVPlayer.hpp */; };
-		58FA3DD42B66ADDE0093927F /* VideoPlayer_libmpv.app in Sources */ = {isa = PBXBuildFile; fileRef = 58F4A9162B62431500D91778 /* VideoPlayer_libmpv.app */; };
-		58FA3DD52B66ADE40093927F /* VideoPlayer_libmpv-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 58F4A9282B62499C00D91778 /* VideoPlayer_libmpv-Bridging-Header.h */; };
-		58FA3DD62B66ADE70093927F /* libmpv.2.dylib in Sources */ = {isa = PBXBuildFile; fileRef = 58F4A92D2B6255C400D91778 /* libmpv.2.dylib */; };
 		58FA3DD82B66B1CA0093927F /* MPVVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FA3DD72B66B1CA0093927F /* MPVVideoView.swift */; };
 /* End PBXBuildFile section */
 
@@ -172,16 +167,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58FA3DD62B66ADE70093927F /* libmpv.2.dylib in Sources */,
-				58FA3DD52B66ADE40093927F /* VideoPlayer_libmpv-Bridging-Header.h in Sources */,
-				58FA3DD42B66ADDE0093927F /* VideoPlayer_libmpv.app in Sources */,
-				58FA3DD32B66ADD80093927F /* MPVPlayer.hpp in Sources */,
+				5887BB282B69364C00DB1BF2 /* MPVPlayerBridge.mm in Sources */,
 				58FA3DD82B66B1CA0093927F /* MPVVideoView.swift in Sources */,
-				58FA3DD22B66ADD40093927F /* MPVPlayerBridge.h in Sources */,
 				58FA3DD12B66A9280093927F /* VideoPlayer_libmpvApp.swift in Sources */,
 				58FA3DCF2B66A90E0093927F /* ContentView.swift in Sources */,
 				58FA3DCB2B66A7690093927F /* MPVPlayer.cpp in Sources */,
-				58FA3DCE2B66A8D00093927F /* MPVPlayerBridge.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
